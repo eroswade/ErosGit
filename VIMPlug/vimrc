@@ -1,0 +1,159 @@
+"origin vimrc add
+" set rtp+=D:\Dropbox\Projects\vimfiles
+" source D:\Dropbox\Projects\vimfiles\_vimrc
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set history=700  "Sets how many lines of history VIM has to remember
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+set autoread " 外部把文件改的了话，自动LOAD
+
+set fileencodings=utf-bom,utf-8,utf-16le,cp936,cp932,gb18030,big5,euc-jp,euc-kr,latin1  
+set fileencoding=utf-8  
+
+let mapleader = ","  " 快捷键前缀
+let g:mapleader = ","
+
+" 基于缩或语法进行代码折叠
+"set foldmethod=indent
+set foldmethod=syntax
+" 启动VIM时关闭折叠代码
+set nofoldenable
+" 启动pathogen
+call pathogen#infect() 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme desert " 配色方案
+
+set nobackup " 不自动备份
+
+"set noswapfile " 不要SWAP
+
+set number " 开行号
+
+syntax enable " 开高亮语法
+
+syntax on "允许用指定语法高亮配色方案替换默认方案
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set ruler "Always show current position
+
+
+set ignorecase " Ignore case when searching
+
+
+set smartcase " When searching try to be smart about cases 
+
+
+set hlsearch " Highlight search results
+
+
+set incsearch " Makes search act like search in modern browsers
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab " Use spaces instead of tabs
+
+set smarttab " Be smart when using tabs ;)
+
+
+set shiftwidth=4 " 1 tab == 4 spaces
+set tabstop=4
+
+set lbr " Linebreak on 500 characters
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+set laststatus=2 " Always show the status line
+
+""""""""""""""""""""""""""""""
+" NERDTree
+""""""""""""""""""""""""""""""
+map <leader>nt :NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"setting Taglist
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ÕâÏî±ØÐëÉè¶¨£¬·ñÔò³ö´í,ÅäÖÃtaglistµÄctagsÂ·¾¶
+"let Tlist_Ctags_Cmd = '$vim\ctags.exe'
+" 不同时显示多个文件的TAG，只显示当前文件的
+let Tlist_Show_One_File=1
+" 如果TAGLIST窗口是最后一个 则退出vim
+let Tlist_Exit_OnlyWindow=1
+" 当前不被编辑的文件 的方法列表自动折叠
+let Tlist_File_Fold_Auto_Close=1
+" taglist 窗口在右边
+let Tlist_Use_Right_Window=1
+" 显示taglist菜单
+let Tlist_Show_Menu=1
+"启动vim 自动打开 taglist
+"let Tlist_Auto_Open=1
+
+
+
+""""""""""""""""""""""""""""""""
+"" winManager setting
+"""""""""""""""""""""""""""""""
+"设置界面分割
+"let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
+let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"
+"设置winmanager的宽度， 默认为25
+let g:winManagerWidth = 30
+" 定义打关winmanager的按键
+nmap <silent> <F8> :WMToggle<cr>
+
+""""""""""""""""""""""""""""""""
+"" vim-indent-guides
+"""""""""""""""""""""""""""""""
+" 随vim自动启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始 可视化显示缩进
+let g:indent_guides_start_level=1
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键i 开/关缩进可视化
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+"""""""""""""""""""""""""""""""""
+"" 开起自动补全功能
+"""""""""""""""""""""""""""""""""
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags 
+":let g:no_html_tab_mapping = 'yes'
+set tags+=./tags;
+
+"When you input a "tab", it will 1. check whether there is a snipMate snippet match the pattern. 2. if there is no snipMate snippet match the pattern, it will use supertab instead. 
+"let SuperTabMappingForward="<Tab>"
+"let SuperTabMappingBackward="<S-Tab>"
+"
+""""""""""""""""""""""""""""""""""""""
+"" 增加补全项
+""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""
+"" vimwiki
+"""""""""""""""""""""""""""""""""""""""
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_list = [{'path': '~/Work/eroswade.github.io/vimwiki',
+\ 'path_html': '~/Work/eroswade.github.io/html/',
+\ 'template_path': '~/Work/eroswade.github.io/templates/',
+\ 'template_default': 'def_template',
+\ 'template_ext': '.html',}]
+let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code'
