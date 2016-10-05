@@ -152,9 +152,9 @@ set tags+=./tags;
 "" vimwiki
 """""""""""""""""""""""""""""""""""""""
 let g:vimwiki_use_mouse = 1
-let g:vimwiki_list = [{'path': 'E:/eroswade-tecblog/vimwiki',
-\ 'path_html': 'E:/eroswade-tecblog/html/',
-\ 'template_path': 'e:/eroswade-tecblog/templates/',
+let g:vimwiki_list = [{'path': 'E:/eroswiki/vimwiki',
+\ 'path_html': 'E:/eroswiki/html/',
+\ 'template_path': 'e:/eroswiki/templates/',
 \ 'template_default': 'def_template',
 \ 'template_ext': '.html',}]
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code'
